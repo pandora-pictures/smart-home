@@ -4,7 +4,54 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-list>
+    <ion-list-header style="margin-top:1rem;"
+      >Create weekly program
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Repeat on days</ion-label>
+
+      <ion-select multiple="true" cancelText="Back" okText="Ok">
+        <ion-item *ngFor="let i of WeekDay">
+          <ion-select-option value="bacon"> {{ i.value }} </ion-select-option>
+        </ion-item>
+      </ion-select>
+    </ion-item>
+
+    <ion-list-header style="margin-top:1rem;">Select Devices </ion-list-header>
+
+    <ion-item>
+      <ion-label>Devices</ion-label>
+
+      <ion-select multiple="true" cancelText="Back" okText="Ok">
+        <ion-item *ngFor="let i of ProgramsType">
+          <ion-select-option value="bacon"> {{ i.label }} </ion-select-option>
+        </ion-item>
+      </ion-select>
+    </ion-item>
+
+    <ion-list-header style="margin-top:1rem;"
+      >Select Starting time
+    </ion-list-header>
+
+    <ion-item>
+      <ion-item style="width:100%">
+        <ion-label>Start</ion-label>
+        <ion-datetime displayFormat="HH:mm"></ion-datetime>
+      </ion-item>
+    </ion-item>
+
+    <ion-list-header style="margin-top:1rem;">Select End time </ion-list-header>
+
+    <ion-item>
+      <ion-item style="width:100%">
+        <ion-label>End</ion-label>
+        <ion-datetime displayFormat="HH:mm"></ion-datetime>
+      </ion-item>
+    </ion-item>
+  </ion-list>
 
   <!-- fab placed to the top end -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
@@ -12,5 +59,4 @@
       <ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  
 </ion-content>

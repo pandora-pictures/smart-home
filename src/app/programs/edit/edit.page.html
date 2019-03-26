@@ -4,14 +4,59 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content padding>
+  <ion-item>
+    <ion-label position="floating">Program name</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
 
-<ion-content>
-  
+  <ion-grid
+    style="    margin-top: 1rem;
+  background-color: #ececec;
+  text-align: center;"
+    class="border"
+  >
+    <ion-row>
+      <ion-col>
+        Giorno
+      </ion-col>
+      <ion-col>
+        Inizio
+      </ion-col>
+      <ion-col>
+        Fine
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid style="margin-top:1rem;">
+    <ion-row>
+      <ion-col style="margin:auto">
+        Lunedì
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-datetime displayFormat="h:mm a"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-datetime displayFormat="h:mm a"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
   <!-- fab placed to the top end -->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
     <ion-fab-button>
       <ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
+  <!-- fab placed to the top end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="save" (click)="save()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

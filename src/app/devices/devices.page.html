@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding style="background-color:#f2f2f2!important;">
   <ion-searchbar></ion-searchbar>
 <!-- 
   <ion-item>
@@ -25,15 +25,15 @@
     </ion-item>
 
     <ion-item>
-      <ion-icon name="logo-ionic" [color]="status ? 'danger' : 'success'" padding></ion-icon>
-      <ion-icon name="logo-ionic" [color]="status ? 'danger' : 'success'" padding></ion-icon>
-      <ion-icon name="logo-ionic" [color]="status ? 'danger' : 'success'" padding></ion-icon>
+      <ion-icon name="logo-ionic" [color]="controller_status_1 ? 'danger' : 'success'" [ngClass]="controller_status_1 ? '' : 'rotates' "  padding></ion-icon>
+      <ion-icon name="logo-ionic" [color]="controller_status_2 ? 'danger' : 'success'" [ngClass]="controller_status_2 ? '' : 'rotates' "  padding></ion-icon>
+      <ion-icon name="logo-ionic" [color]="controller_status_3 ? 'danger' : 'success'" [ngClass]="controller_status_3 ? '' : 'rotates' "  padding></ion-icon>
 
       <ion-toggle slot="end" padding (ionChange)="runTimeChange($event)"></ion-toggle>
     </ion-item>
     <ion-card-content>
       Questo controlla tutta l'irrigazione del giardino, per accendere o
-      spengnere un singolo settore
+      spengnere un singolo settore entra in edit
     </ion-card-content>
   </ion-card>
 
@@ -46,8 +46,7 @@
       <ion-toggle slot="end" padding></ion-toggle>
     </ion-item>
     <ion-card-content>
-      Questo controlla tutta l'irrigazione del giardino, per accendere o
-      spengnere un singolo settore
+      Questo controlla la stufa
     </ion-card-content>
   </ion-card>
 
