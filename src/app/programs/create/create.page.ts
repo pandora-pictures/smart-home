@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatePage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  goBack() {
+    this.router.navigate(['']);
   }
 
 }

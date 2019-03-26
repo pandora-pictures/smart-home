@@ -19,9 +19,6 @@ const routes: Routes = [
       {
         path: 'programs',
         loadChildren: '../programs/programs.module#ProgramsPageModule'},
-      {
-        path: 'create',
-        loadChildren: '../programs/create/create.module#CreatePageModule'},
     ]
   },
   {

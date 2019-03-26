@@ -1,4 +1,3 @@
-import { NavController } from 'ionic-angular';
 import { RouterModule, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
