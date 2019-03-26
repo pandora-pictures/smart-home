@@ -16,9 +16,21 @@ const routes: Routes = [
       {
         path: 'devices',
         loadChildren: '../devices/devices.module#DevicesPageModule'},
+      {
+        path: 'programs',
+        loadChildren: '../programs/programs.module#ProgramsPageModule'},
+      {
+        path: 'create',
+        loadChildren: '../programs/create/create.module#CreatePageModule'},
     ]
-  }
-];
+  },
+  {
+    path: 'create',
+    loadChildren: '../programs/create/create.module#CreatePageModule'},
+  {
+    path: 'edit',
+    loadChildren: '../programs/edit/edit.module#EditPageModule'},
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

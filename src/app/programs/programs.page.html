@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Programmi
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- List of Input Items -->
+  <ion-list>
+    <ion-item>
+      <ion-label>Irrigazione Giardino</ion-label>
+      <ion-checkbox slot="end"></ion-checkbox>
+      <ion-button slot="end" size="small" style="z-index:99999" [routerLink]="['/edit']" >
+        Edit
+      </ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Stufa</ion-label>
+      <ion-checkbox slot="end"></ion-checkbox>
+      <ion-button slot="end" size="small" style="z-index:99999">
+        Edit
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- fab placed to the top end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
