@@ -2,14 +2,8 @@
 
 git add *
 
-input="junk"
-inputArray=()
-
-while [ "$input" != "" ] 
-do 
-   read -p "Enter the commit name for push to origin master: " input
-   inputArray+=("$input")
-done
+read -p "Enter the commit name : "  username
+echo "Welcome $username!"
 
 git commit -m input
 git push origin develop
