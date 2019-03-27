@@ -67,12 +67,14 @@ app.post("/toggle1", function(req, res) {
       pin.high();
       res.send({
         pinId: 1,
+        state: true,
         pin3: state["value"]
       });
     } else {
       pin.low();
       res.send({
         pinId: 1,
+        state: false,
         value: state["value"]
       });
     }
@@ -85,12 +87,14 @@ app.post("/toggle2", function(req, res) {
       pin.high();
       res.send({
         pinId: 2,
+        state: true,
         pin3: state["value"]
       });
     } else {
       pin.low();
       res.send({
         pinId: 2,
+        state: false,
         pin3: state["value"]
       });
     }
@@ -103,49 +107,53 @@ app.post("/toggle3", function(req, res) {
       pin.high();
       res.send({
         pinId: 3,
+        state: false,
         value: state["value"]
       });
     } else {
       pin.low();
       res.send({
         pinId: 3,
-        value: state["value"]
+        value: state["value"],
+        state: true
       });
     }
   })
 });
 
-// function getState(id) {
-//   var pin = id;
-//   board.on("ready", () => {
+var pinStatus = [];
+app.get("/getstatus", function(req, res) {
+  const pin1 = five.Pin(0);
+  const pin2 = five.Pin(5);
+  const pin3 = five.Pin(4);
+  
+  pin1.query(function(state) {
+    const index = pinStatus.findIndex((e) => e.id === 1);
+    if (index === -1) {
+        pinStatus.push( {id: 1 , state: state} );
+    } else {
+      pinStatus[index]['state'] = state;
+    }
+  });
+  pin2.query(function(state) {
+    const index = pinStatus.findIndex((e) => e.id === 2);
+    if (index === -1) {
+      pinStatus.push( {id: 2 , state: state} );
+    } else {
+      pinStatus[index]['state'] = state;
+    }
+  });
+  pin3.query(function(state) {
+    const index = pinStatus.findIndex((e) => e.id === 3);
+    if (index === -1) {
+        pinStatus.push( {id: 3 , state: state} );
+    } else {
+      pinStatus[index]['state'] = state;
 
-//     pin.query(function(state) {
-//       if (state['state'] === 0) {
-//         console.log('trovato 0');
-//         return 0;
-//       } else {
-//         console.log('trovato 1');
-//         return 1;
-//       }
-//       // return console.log(state['state']);
-//     });
-//   });
-// }
-
-// app.get("/checkname/:name", function(req, res) {
-//   board.on("ready", () => {
-//     if (req.params.name.toLowerCase() === "controller_1") {
-
-//       const pin = five.Pin(2);
-//       pin.query(function(state) {
-//         console.log(state);
-//       });
-//       res.send({state: state});
-//     } else {
-//       res.status(401).send({ message: "Sorry, no Homer's!" });
-//     }
-//   });
-// });
+    }
+  });
+  res.send({ pinStatus });
+});
 
 app.listen(process.env.PORT || 8080);
 //////////////////////////////////////

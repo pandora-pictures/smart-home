@@ -21,24 +21,23 @@
     <ion-item>
       <!-- <ion-icon name="square" color="danger" slot="start"></ion-icon> -->
       <ion-label>Giardino</ion-label>
-      {{ obj }}
       <ion-button slot="end" size="small">Edit</ion-button>
     </ion-item>
     
-    <ion-item>
+    <ion-item *ngFor="let sector of obj?.pinStatus" >
       <ion-icon
         name="logo-ionic"
-        [color]="status1 ? 'danger' : 'success'"
-        [ngClass]="status1 ? '' : 'rotates'"
+        [color]="sector.state.value === 1 ? 'danger' : 'success'"
+        [ngClass]="sector.state.value === 1 ? '' : 'rotates'"
         padding
       ></ion-icon>
       <ion-label>
-        Settore 1
+        Settore {{ sector.id }}
       </ion-label>
-      <ion-toggle [(ngModel)]="!controller_status_1" slot="end" padding (ionChange)="toggle(1)"></ion-toggle>
+      <ion-toggle [ngModel]="sector.state.value === 0 ? true : false | async" slot="end" padding (ionChange)="toggle(sector.id)"></ion-toggle>
     </ion-item>
     
-    <ion-item>
+    <!-- <ion-item>
       <ion-icon
         name="logo-ionic"
         [color]="controller_status_2 ? 'danger' : 'success'"
@@ -47,7 +46,7 @@
       ></ion-icon>
       <!-- <ion-title [color]="controller_status_2 ? 'danger' : 'success'">
         {{  controller_status_2 ? 'Offline' : 'Online' }}
-      </ion-title> -->
+      </ion-title>
       <ion-label >
         Settore 2
       </ion-label>
@@ -67,7 +66,7 @@
       </ion-label>
 
       <ion-toggle [(ngModel)]="!controller_status_3" slot="end" padding (ionChange)="toggle(3)"></ion-toggle>
-    </ion-item>
+    </ion-item> -->
 
     <ion-card-content>
       Questo controlla tutta l'irrigazione del giardino, per accendere o
