@@ -19,6 +19,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserService } from './user.service';
 import { HomePageModule } from './home/home.module';
+import { DevicesService } from './devices.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +39,7 @@ import { HomePageModule } from './home/home.module';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     UserService,
+    DevicesService,
     AuthService
   ],
   bootstrap: [AppComponent]
