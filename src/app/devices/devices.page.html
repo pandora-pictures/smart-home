@@ -6,16 +6,6 @@
 
 <ion-content padding style="background-color:#f2f2f2!important;">
   <ion-searchbar></ion-searchbar>
-  <!-- 
-  <ion-item>
-    <ion-note slot="start">Off</ion-note>
-
-    <ion-label>
-      Icon End
-    </ion-label>
-    <ion-icon name="information-circle" slot="end"></ion-icon>
-    <ion-toggle slot="end"></ion-toggle>
-  </ion-item> -->
 
   <ion-card>
     <ion-item>
@@ -37,37 +27,6 @@
       <ion-toggle [ngModel]="sector.state.value === 0 ? true : false | async" slot="end" padding (ionChange)="toggle(sector.id)"></ion-toggle>
     </ion-item>
     
-    <!-- <ion-item>
-      <ion-icon
-        name="logo-ionic"
-        [color]="controller_status_2 ? 'danger' : 'success'"
-        [ngClass]="controller_status_2 ? '' : 'rotates'"
-        padding
-      ></ion-icon>
-      <!-- <ion-title [color]="controller_status_2 ? 'danger' : 'success'">
-        {{  controller_status_2 ? 'Offline' : 'Online' }}
-      </ion-title>
-      <ion-label >
-        Settore 2
-      </ion-label>
-    <ion-toggle [(ngModel)]="!controller_status_2" slot="end" padding (ionChange)="toggle(2)"></ion-toggle>
-    
-    </ion-item>
-
-    <ion-item>
-      <ion-icon
-        name="logo-ionic"
-        [color]="controller_status_3 ? 'danger' : 'success'"
-        [ngClass]="controller_status_3 ? '' : 'rotates'"
-        padding
-      ></ion-icon>
-      <ion-label>
-        Settore 3
-      </ion-label>
-
-      <ion-toggle [(ngModel)]="!controller_status_3" slot="end" padding (ionChange)="toggle(3)"></ion-toggle>
-    </ion-item> -->
-
     <ion-card-content>
       Questo controlla tutta l'irrigazione del giardino, per accendere o
       spengnere un singolo settore entra in edit
